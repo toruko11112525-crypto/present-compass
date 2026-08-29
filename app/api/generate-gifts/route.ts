@@ -6,6 +6,8 @@ import { generateGiftSuggestions, AiGenerationError } from "@/lib/ai/client";
 import { buildAmazonSearchUrl, buildRakutenSearchUrl } from "@/lib/affiliate/links";
 import type { GenerateGiftsResponse } from "@/types/gift";
 
+export const maxDuration = 60;
+
 export async function POST(request: Request) {
   let body: unknown;
   try {

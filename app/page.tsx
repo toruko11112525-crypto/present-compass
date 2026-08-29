@@ -11,7 +11,7 @@ import type { PresentSuggestion } from "@/types/gift";
 type Step = "form" | "loading" | "result" | "error";
 
 const MAX_REGENERATE_COUNT = 3;
-const REQUEST_TIMEOUT_MS = 30_000;
+const REQUEST_TIMEOUT_MS = 45_000;
 
 export default function Home() {
   const [step, setStep] = useState<Step>("form");
