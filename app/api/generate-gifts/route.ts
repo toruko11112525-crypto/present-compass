@@ -51,10 +51,12 @@ export async function POST(request: Request) {
   try {
     const result = await generateGiftSuggestions(systemPrompt, userPrompt);
     const response: GenerateGiftsResponse = {
-      suggestions: result.suggestions.map((s) => ({
-        ...s,
-        amazonUrl: buildAmazonSearchUrl(s.name),
-        rakutenUrl: buildRakutenSearchUrl(s.name),
+      suggestions: result.suggestions.map(({ name, reason, priceRange, searchKeyword }) => ({
+        name,
+        reason,
+        priceRange,
+        amazonUrl: buildAmazonSearchUrl(searchKeyword),
+        rakutenUrl: buildRakutenSearchUrl(searchKeyword),
       })),
     };
     return NextResponse.json(response, { status: 200 });

@@ -29,6 +29,13 @@ export function InputForm({ config, onSubmit }: InputFormProps) {
     setValues((prev) => ({ ...prev, [fieldId]: value }));
   }
 
+  function handleSuggestionClick(field: FieldDefinition, suggestion: string) {
+    const current = values[field.id] ?? "";
+    if (current.split("、").map((s) => s.trim()).includes(suggestion)) return;
+    const next = current ? `${current}、${suggestion}` : suggestion;
+    handleChange(field.id, field.maxLength ? next.slice(0, field.maxLength) : next);
+  }
+
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     const nextErrors: Record<string, string> = {};
@@ -90,6 +97,21 @@ export function InputForm({ config, onSubmit }: InputFormProps) {
                 </option>
               ))}
             </select>
+          )}
+
+          {field.suggestions && (
+            <div className="flex flex-wrap gap-1.5 pt-0.5">
+              {field.suggestions.map((suggestion) => (
+                <button
+                  key={suggestion}
+                  type="button"
+                  onClick={() => handleSuggestionClick(field, suggestion)}
+                  className="rounded-full bg-zinc-100 px-3 py-1 text-xs font-bold text-zinc-500 transition hover:bg-pink-100 hover:text-pink-600"
+                >
+                  {suggestion}
+                </button>
+              ))}
+            </div>
           )}
 
           {field.type === "textarea" && field.maxLength && (

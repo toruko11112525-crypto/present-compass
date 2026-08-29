@@ -2,6 +2,7 @@ import { z } from "zod";
 
 export const giftSuggestionSchema = z.object({
   name: z.string().min(1),
+  searchKeyword: z.string().min(1),
   reason: z.string().min(1),
   priceRange: z.string().min(1),
 });

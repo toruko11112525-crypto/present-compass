@@ -30,7 +30,7 @@ export function GiftCard({ suggestion, index }: GiftCardProps) {
           href={suggestion.amazonUrl}
           target="_blank"
           rel="noopener noreferrer sponsored"
-          className="flex-1 rounded-full border-2 border-zinc-200 py-2 text-center text-xs font-bold text-zinc-700 transition hover:border-zinc-300 hover:bg-zinc-50"
+          className="flex-1 rounded-full bg-[#FF9900] py-2 text-center text-xs font-bold text-white shadow-sm transition hover:opacity-90"
         >
           Amazonで探す
         </a>
@@ -38,7 +38,7 @@ export function GiftCard({ suggestion, index }: GiftCardProps) {
           href={suggestion.rakutenUrl}
           target="_blank"
           rel="noopener noreferrer sponsored"
-          className="flex-1 rounded-full border-2 border-zinc-200 py-2 text-center text-xs font-bold text-zinc-700 transition hover:border-zinc-300 hover:bg-zinc-50"
+          className="flex-1 rounded-full bg-[#BF0000] py-2 text-center text-xs font-bold text-white shadow-sm transition hover:opacity-90"
         >
           楽天で探す
         </a>

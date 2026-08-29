@@ -22,10 +22,11 @@ const RESPONSE_SCHEMA: Schema = {
         type: SchemaType.OBJECT,
         properties: {
           name: { type: SchemaType.STRING },
+          searchKeyword: { type: SchemaType.STRING },
           reason: { type: SchemaType.STRING },
           priceRange: { type: SchemaType.STRING },
         },
-        required: ["name", "reason", "priceRange"],
+        required: ["name", "searchKeyword", "reason", "priceRange"],
       },
     },
   },

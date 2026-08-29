@@ -38,6 +38,17 @@ export const friendConfig: RelationshipConfig = {
       required: false,
       maxLength: 100,
       placeholder: "例：カフェ巡り、キャンプ、K-POP",
+      suggestions: [
+        "カフェ巡り",
+        "お酒",
+        "コスメ",
+        "アウトドア",
+        "映画鑑賞",
+        "読書",
+        "筋トレ",
+        "ゲーム",
+        "K-POP",
+      ],
     },
     {
       id: "episode",

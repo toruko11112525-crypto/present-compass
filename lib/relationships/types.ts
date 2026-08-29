@@ -14,6 +14,8 @@ export type FieldDefinition = {
   minLength?: number;
   maxLength?: number;
   options?: FieldOption[];
+  /** text/textarea向け。タップで入力欄に追加できるよくある回答例 */
+  suggestions?: string[];
 };
 
 /**
