@@ -22,7 +22,10 @@ export function GiftCard({ suggestion, index }: GiftCardProps) {
       <span className="w-fit rounded-full bg-orange-50 px-3 py-1 text-xs font-bold text-orange-600">
         目安 {suggestion.priceRange}
       </span>
-      <div className="flex gap-2 pt-1">
+      <div className="flex items-center gap-2 pt-1">
+        <span className="shrink-0 rounded bg-zinc-100 px-1.5 py-0.5 text-[10px] font-bold text-zinc-400">
+          PR
+        </span>
         <a
           href={suggestion.amazonUrl}
           target="_blank"

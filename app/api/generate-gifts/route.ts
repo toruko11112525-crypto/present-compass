@@ -4,11 +4,20 @@ import { buildInputSchema } from "@/lib/validation/inputSchema";
 import { buildSystemPrompt, buildUserPrompt } from "@/lib/ai/promptBuilder";
 import { generateGiftSuggestions, AiGenerationError } from "@/lib/ai/client";
 import { buildAmazonSearchUrl, buildRakutenSearchUrl } from "@/lib/affiliate/links";
+import { isRateLimited, getClientIdentifier } from "@/lib/rateLimit";
 import type { GenerateGiftsResponse } from "@/types/gift";
 
 export const maxDuration = 60;
 
 export async function POST(request: Request) {
+  const clientId = getClientIdentifier(request);
+  if (isRateLimited(clientId)) {
+    return NextResponse.json(
+      { error: "リクエストが多すぎます。しばらく時間を置いてから再度お試しください。" },
+      { status: 429 },
+    );
+  }
+
   let body: unknown;
   try {
     body = await request.json();

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { AffiliateNotice } from "@/components/AffiliateNotice";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -11,6 +12,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html lang="ja" className="h-full antialiased">
       <body className="min-h-full flex flex-col bg-gradient-to-b from-orange-50 via-white to-pink-50">
         {children}
+        <AffiliateNotice />
       </body>
     </html>
   );
